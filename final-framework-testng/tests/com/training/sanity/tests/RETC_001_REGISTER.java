@@ -1,11 +1,14 @@
 
 package com.training.sanity.tests;
 
+import static org.testng.Assert.assertEquals;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.Random;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -35,6 +38,7 @@ public class RETC_001_REGISTER {
 		properties.load(inStream);
 	}
 
+	
 	@BeforeMethod
 	public void beforeMethod() {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
@@ -49,14 +53,14 @@ public class RETC_001_REGISTER {
 	public void validRETC_001_REGISTER() {
 		wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.visibilityOf(registerPOM.getLoginRegister()));
-		screenShot.captureScreenShot("launch");
+		screenShot.captureScreenShot("RETC_001_00_launch");
 
 		registerPOM.clicklogin_register();
 		wait.until(ExpectedConditions.invisibilityOf(registerPOM.getRegisterTab()));
-		screenShot.captureScreenShot("Login_Registeration");
+		screenShot.captureScreenShot("RETC_001_01_Login_Registeration");
 		registerPOM.clickRegisterTab();
 		wait.until(ExpectedConditions.visibilityOf(registerPOM.getEmail()));
-		screenShot.captureScreenShot("Register_Tab");
+		screenShot.captureScreenShot("RETC_001_02_Register_Tab");
 				
 		String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         StringBuilder salt = new StringBuilder();
@@ -71,7 +75,13 @@ public class RETC_001_REGISTER {
 		registerPOM.sendlastName(saltStr);
 		registerPOM.clickRegister();
 		wait.until(ExpectedConditions.visibilityOf(registerPOM.getSuccess()));
-		screenShot.captureScreenShot("Registration_Status");
+		screenShot.captureScreenShot("RETC_001_03_Registration_Status");
+		
+		String registersuccess = driver.findElement(By.xpath("/html/body/div[1]/div[4]/div/article/div/div/div/div[1]/p")).getText();
+		
+		  String Expected ="You have successfully registered to Real Estate. We have emailed your password to the email address you entered.";
+		  String Actual =  registersuccess;		
+		  assertEquals(Actual, Expected);
 	}
 
 	@AfterMethod

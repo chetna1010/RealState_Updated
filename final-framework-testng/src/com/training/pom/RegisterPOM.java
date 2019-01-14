@@ -9,7 +9,7 @@ public class RegisterPOM {
 	
 	private WebDriver driver; 
 	
-	@FindBy(xpath="/html/body/div[1]/header/div[2]/nav/div/ul/li[8]/a")
+	@FindBy(xpath="//a[@class='sign-in']")
 	private WebElement login_register; 
 	
 	@FindBy(linkText="Register")
@@ -34,6 +34,7 @@ public class RegisterPOM {
 		this.setDriver(driver); 
 		PageFactory.initElements(driver, this);
 	}
+	
 	
 	public void sendemail(String email) {
 		this.email.clear();

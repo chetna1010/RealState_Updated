@@ -13,10 +13,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 
+import static org.testng.Assert.assertEquals;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -64,6 +67,15 @@ public class RETC_002_Login {
 		wait.until(ExpectedConditions.visibilityOf(register_LoginPOM.getProfile()));
 		
 		screenShot.captureScreenShot("RETC_002_login_02_Login_success");
+		
+		String loginsuccess = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/h2")).getText();
+		
+		
+		
+		  String Expected ="My Profile";
+		  String Actual =  loginsuccess;		
+		  assertEquals(Actual, Expected);
+		   
   }
   
 
