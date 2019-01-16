@@ -56,38 +56,39 @@ public class RETC_004_updateProfile {
   public void RETC_004_updateProfile() throws InterruptedException {
 	  
 	  
-	  	wait = new WebDriverWait(driver, 180);
-		wait.until(ExpectedConditions.visibilityOf(updateProfilePOM.getLoginRegister()));
+	  	wait = new WebDriverWait(driver, 180); // this function will be wait 180 secs to load the page
+		wait.until(ExpectedConditions.visibilityOf(updateProfilePOM.getLoginRegister())); // launch the Application
 		screenShot.captureScreenShot("RETC_004_updateProfile_00_launch");
 		
-		updateProfilePOM.clicklogin_register();
-		wait.until(ExpectedConditions.visibilityOf(updateProfilePOM.getUserName()));
+		updateProfilePOM.clicklogin_register(); // click on login/register link
+		wait.until(ExpectedConditions.visibilityOf(updateProfilePOM.getUserName())); // Wait until username filed displays
 		screenShot.captureScreenShot("RETC_004_updateProfile_01_login_register");
 		
-		updateProfilePOM.sendUserName("rameshakula82@gmail.com");
+		updateProfilePOM.sendUserName("rameshakula82@gmail.com"); // Enter user name and password
 		updateProfilePOM.sendPassword("ramesh1234");
-		updateProfilePOM.clickLoginBtn();
-		
-		wait.until(ExpectedConditions.visibilityOf(updateProfilePOM.getProfile()));
+		updateProfilePOM.clickLoginBtn(); // click on login button
+		 
+		wait.until(ExpectedConditions.visibilityOf(updateProfilePOM.getProfile())); //Wait until profile text displays
 		screenShot.captureScreenShot("RETC_004_updateProfile_02_Login_success");
 		
-		Actions actions = new Actions(driver);
+		Actions actions = new Actions(driver); // Used mouse action funtion to click on User Hyper link then click on MY profile
 		actions.moveToElement(updateProfilePOM.getUserHyperlink()).build().perform();
 		Thread.sleep(5000);
 		driver.findElement(By.linkText("My Profile")).click();
 				
 		screenShot.captureScreenShot("RETC_004_updateProfile_03_MyProfile");
 		
-		updateProfilePOM.sendagentTitle("rameshakula Real Estate");
+		updateProfilePOM.sendagentTitle("rameshakula Real Estate"); //Update Agent Title  and Phone number
 		updateProfilePOM.sendphone("9343925598");
 		
-		updateProfilePOM.clicksaveChanges();
+		updateProfilePOM.clicksaveChanges(); //click on Save button
 		
 		screenShot.captureScreenShot("RETC_004_updateProfile_04_ProfileUpdated");
 		
 		String updateprofile = driver.findElement(By.xpath("/html/body/div[1]/div[4]/div/article/div[2]/div/div[1]/div/p")).getText();
 		
-	
+			//Your profile has been updated. Message should get displayed with the changes made in My Profile page
+
 		  String Expected ="Your profile has been updated.";
 		  String Actual =  updateprofile;		
 		  assertEquals(Actual, Expected);

@@ -55,22 +55,25 @@ public class RETC_002_Login {
 	
   @Test
   public void RETC_002_Login() {
-	  	wait = new WebDriverWait(driver, 180);
-		wait.until(ExpectedConditions.visibilityOf(register_LoginPOM.getLoginRegister()));
+	  	wait = new WebDriverWait(driver, 180); // this function will be wait 180 secs to load the page
+		wait.until(ExpectedConditions.visibilityOf(register_LoginPOM.getLoginRegister())); // launch the Application
 		screenShot.captureScreenShot("RETC_002_login_00_launch");
-		register_LoginPOM.clicklogin_register();
-		wait.until(ExpectedConditions.visibilityOf(register_LoginPOM.getUserName()));
-		screenShot.captureScreenShot("RETC_002_login_01_login_register");
-		register_LoginPOM.sendUserName("rameshakula82@gmail.com");
-		register_LoginPOM.sendPassword("ramesh1234");
-		register_LoginPOM.clickLoginBtn();
-		wait.until(ExpectedConditions.visibilityOf(register_LoginPOM.getProfile()));
 		
+		register_LoginPOM.clicklogin_register(); // click on login/register link
+		wait.until(ExpectedConditions.visibilityOf(register_LoginPOM.getUserName())); // Wait until username filed displays
+		screenShot.captureScreenShot("RETC_002_login_01_login_register");
+		
+		register_LoginPOM.sendUserName("rameshakula82@gmail.com"); // Enter user name and password
+		register_LoginPOM.sendPassword("ramesh1234");
+		
+		register_LoginPOM.clickLoginBtn(); // Click on login button
+		wait.until(ExpectedConditions.visibilityOf(register_LoginPOM.getProfile()));
 		screenShot.captureScreenShot("RETC_002_login_02_Login_success");
 		
 		String loginsuccess = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/h2")).getText();
 		
-		
+		//Verify My Profile page should get displayed
+
 		
 		  String Expected ="My Profile";
 		  String Actual =  loginsuccess;		

@@ -54,41 +54,42 @@ public class RETC_005_changePassword {
 	
   @Test
   public void RETC_005_changePassword() throws InterruptedException {
-	  	wait = new WebDriverWait(driver, 180);
-		wait.until(ExpectedConditions.visibilityOf(changePasswordPOM.getLoginRegister()));
+	  	wait = new WebDriverWait(driver, 180); // this function will be wait 180 secs to load the page
+		wait.until(ExpectedConditions.visibilityOf(changePasswordPOM.getLoginRegister())); // launch the Application
 		screenShot.captureScreenShot("RETC_005_changePassword_00_launch");
-		changePasswordPOM.clicklogin_register();
-		wait.until(ExpectedConditions.visibilityOf(changePasswordPOM.getUserName()));
-		screenShot.captureScreenShot("RETC_005_changePassword_01_login_register");
-		changePasswordPOM.sendUserName("rameshakula82@gmail.com");
-		changePasswordPOM.sendPassword("ramesh1234");
-		changePasswordPOM.clickLoginBtn();
-		wait.until(ExpectedConditions.visibilityOf(changePasswordPOM.getProfile()));
 		
+		changePasswordPOM.clicklogin_register(); // click on login/register link
+		wait.until(ExpectedConditions.visibilityOf(changePasswordPOM.getUserName())); // Wait until username filed displays 
+		screenShot.captureScreenShot("RETC_005_changePassword_01_login_register"); 
+		
+		changePasswordPOM.sendUserName("rameshakula82@gmail.com"); // Enter user name and password
+		changePasswordPOM.sendPassword("ramesh1234");
+		changePasswordPOM.clickLoginBtn();  // click on login button
+		wait.until(ExpectedConditions.visibilityOf(changePasswordPOM.getProfile())); //Wait until profile text displays 
 		screenShot.captureScreenShot("RETC_005_changePassword_02_Login_success");
 		
-		Actions actions = new Actions(driver);
+		Actions actions = new Actions(driver); // Used mouse action funtion to click on User Hyper link then click on MY profile 
 		actions.moveToElement(changePasswordPOM.getUserHyperlink()).build().perform();
 		Thread.sleep(5000);
 		driver.findElement(By.linkText("My Profile")).click();
 		
 		screenShot.captureScreenShot("RETC_005_changePassword_03_MyProfile");
 		
-		changePasswordPOM.clickChangePWD();
+		changePasswordPOM.clickChangePWD(); // Click on Change password 
 		wait.until(ExpectedConditions.visibilityOf(changePasswordPOM.getChangePWD()));
 		screenShot.captureScreenShot("RETC_005_changePassword_04_change password");
 		
-		changePasswordPOM.sendcurrentPass("ramesh1234");
+		changePasswordPOM.sendcurrentPass("ramesh1234"); //Enter Old and new password deatils 
 		changePasswordPOM.sendNewPass("ramesh1234");
 		changePasswordPOM.sendReNewPass("ramesh1234");
 		
-		changePasswordPOM.clickupdatednewpassword();
+		changePasswordPOM.clickupdatednewpassword(); //click on update password
 		wait.until(ExpectedConditions.visibilityOf(changePasswordPOM.getupdatednewpassword()));
 		screenShot.captureScreenShot("RETC_005_changePassword_05_updatednewpassword");
 		
 	String updatedpassword = driver.findElement(By.xpath("/html/body/div[1]/div[4]/div/article/div[2]/div/div[1]/div/p")).getText();
 		
-		
+	// verify Password Has been updated Message should get displayed
 		
 		  String Expected ="Your password has been updated.";
 		  String Actual =  updatedpassword;		
@@ -97,9 +98,7 @@ public class RETC_005_changePassword {
 		     
   }
   
-  
-
-  @AfterMethod
+   @AfterMethod
   public void tearDown() throws Exception {
 		Thread.sleep(5000);
 		driver.quit();

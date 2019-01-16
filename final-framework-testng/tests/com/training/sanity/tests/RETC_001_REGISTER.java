@@ -51,16 +51,19 @@ public class RETC_001_REGISTER {
 
 	@Test
 	public void validRETC_001_REGISTER() {
-		wait = new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions.visibilityOf(registerPOM.getLoginRegister()));
-		screenShot.captureScreenShot("RETC_001_00_launch");
+		wait = new WebDriverWait(driver, 180); // this function will be wait 180 secs until load the page
+		wait.until(ExpectedConditions.visibilityOf(registerPOM.getLoginRegister())); // launch the Application
+		screenShot.captureScreenShot("RETC_001_00_launch"); 
 
-		registerPOM.clicklogin_register();
+		registerPOM.clicklogin_register(); // click on login/register link
 		wait.until(ExpectedConditions.invisibilityOf(registerPOM.getRegisterTab()));
 		screenShot.captureScreenShot("RETC_001_01_Login_Registeration");
-		registerPOM.clickRegisterTab();
+		
+		registerPOM.clickRegisterTab(); // Click on Register tab
 		wait.until(ExpectedConditions.visibilityOf(registerPOM.getEmail()));
 		screenShot.captureScreenShot("RETC_001_02_Register_Tab");
+		
+		//When I run this script 2nd time getting the mail id already register so used below function to generate random chars 
 				
 		String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         StringBuilder salt = new StringBuilder();
@@ -79,6 +82,8 @@ public class RETC_001_REGISTER {
 		
 		String registersuccess = driver.findElement(By.xpath("/html/body/div[1]/div[4]/div/article/div/div/div/div[1]/p")).getText();
 		
+		// Verify You have successfully registered to Real Estate. We have emailed your password to the email address you entered. Message should get displayed on the screen & password should be sent to entered mail address
+
 		  String Expected ="You have successfully registered to Real Estate. We have emailed your password to the email address you entered.";
 		  String Actual =  registersuccess;		
 		  assertEquals(Actual, Expected);
