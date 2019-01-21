@@ -68,7 +68,7 @@ public class RETC_005_changePassword {
 		wait.until(ExpectedConditions.visibilityOf(changePasswordPOM.getProfile())); //Wait until profile text displays 
 		screenShot.captureScreenShot("RETC_005_changePassword_02_Login_success");
 		
-		Actions actions = new Actions(driver); // Used mouse action funtion to click on User Hyper link then click on MY profile 
+		Actions actions = new Actions(driver); // Used mouse action function to click on User Hyper link then click on MY profile 
 		actions.moveToElement(changePasswordPOM.getUserHyperlink()).build().perform();
 		Thread.sleep(5000);
 		driver.findElement(By.linkText("My Profile")).click();
