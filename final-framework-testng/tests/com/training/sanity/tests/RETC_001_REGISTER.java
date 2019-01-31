@@ -80,7 +80,7 @@ public class RETC_001_REGISTER {
 		wait.until(ExpectedConditions.visibilityOf(registerPOM.getSuccess()));
 		screenShot.captureScreenShot("RETC_001_03_Registration_Status");
 		
-		String registersuccess = driver.findElement(By.xpath("/html/body/div[1]/div[4]/div/article/div/div/div/div[1]/p")).getText();
+		String registersuccess = driver.findElement(By.xpath("//div[@class='notification success closeable']")).getText();
 		
 		// Verify You have successfully registered to Real Estate. We have emailed your password to the email address you entered. Message should get displayed on the screen & password should be sent to entered mail address
 

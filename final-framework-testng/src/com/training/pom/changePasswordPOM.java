@@ -25,8 +25,6 @@ public class changePasswordPOM {
 	@FindBy(id="formLogin_submitAuth")
 	private WebElement loginBtn;
 	
-	@FindBy(xpath="/html/body/div[1]/div[3]/div/div/div/h2")
-	private WebElement profile;
 	
 	@FindBy(xpath="//*[@id=\"header\"]/div[2]/div/div/div/div")
 	private WebElement userHyperlink;
@@ -59,10 +57,7 @@ public class changePasswordPOM {
 		this.userName.sendKeys(userName);
 	}
 	
-	public WebElement getProfile() {
-		return this.profile;
-	}
-	
+		
 	public WebElement getUserName() {
 		return this.userName;
 	}

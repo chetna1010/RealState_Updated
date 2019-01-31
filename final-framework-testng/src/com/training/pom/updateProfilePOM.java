@@ -25,9 +25,6 @@ public class updateProfilePOM {
 	@FindBy(id="formLogin_submitAuth")
 	private WebElement loginBtn;
 	
-	@FindBy(xpath="/html/body/div[1]/div[3]/div/div/div/h2")
-	private WebElement profile;
-	
 	@FindBy(xpath="//*[@id=\"header\"]/div[2]/div/div/div/div")
 	private WebElement userHyperlink;
 	
@@ -42,7 +39,7 @@ public class updateProfilePOM {
 	private WebElement saveChanges;
 	
 	
-	@FindBy(xpath="/html/body/div[1]/div[4]/div/article/div[2]/div/div[1]/div/p")
+	@FindBy(xpath="//div[@class='notification success closeable margin-bottom-35']")
 	private WebElement ProfileUpdated;
 	
 	public updateProfilePOM(WebDriver driver) {
@@ -57,9 +54,6 @@ public class updateProfilePOM {
 		this.userName.sendKeys(userName);
 	}
 	
-	public WebElement getProfile() {
-		return this.profile;
-	}
 	
 	public WebElement getUserName() {
 		return this.userName;

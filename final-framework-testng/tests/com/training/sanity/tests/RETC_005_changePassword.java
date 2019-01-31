@@ -65,7 +65,7 @@ public class RETC_005_changePassword {
 		changePasswordPOM.sendUserName("rameshakula82@gmail.com"); // Enter user name and password
 		changePasswordPOM.sendPassword("ramesh1234");
 		changePasswordPOM.clickLoginBtn();  // click on login button
-		wait.until(ExpectedConditions.visibilityOf(changePasswordPOM.getProfile())); //Wait until profile text displays 
+		wait.until(ExpectedConditions.visibilityOf(changePasswordPOM.getUserHyperlink())); //Wait until profile text displays 
 		screenShot.captureScreenShot("RETC_005_changePassword_02_Login_success");
 		
 		Actions actions = new Actions(driver); // Used mouse action function to click on User Hyper link then click on MY profile 
@@ -87,7 +87,7 @@ public class RETC_005_changePassword {
 		wait.until(ExpectedConditions.visibilityOf(changePasswordPOM.getupdatednewpassword()));
 		screenShot.captureScreenShot("RETC_005_changePassword_05_updatednewpassword");
 		
-	String updatedpassword = driver.findElement(By.xpath("/html/body/div[1]/div[4]/div/article/div[2]/div/div[1]/div/p")).getText();
+	String updatedpassword = driver.findElement(By.xpath("//div[@class='notification success closeable margin-bottom-35']")).getText();
 		
 	// verify Password Has been updated Message should get displayed
 		

@@ -103,13 +103,14 @@ public class RETC_033_AddedPropertyDetails {
 		wait.until(ExpectedConditions.visibilityOf(AddedPropertyDetailsPOM.getPostPublished())); // wait until post publish details displays
 		screenShot.captureScreenShot("RETC_033_login_03_PostPublished");
 		
-		String PostPublished = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/p")).getText();
+		String PostPublished = driver.findElement(By.id("message")).getText();
 		
 		//Verify Post published should get displayed
 		
 		Thread.sleep(5000);
 		
-		  String Expected ="Post published. View post";
+		  String Expected ="Post published. View post\n" + 
+			  		"Dismiss this notice.";
 		  String Actual =  PostPublished;		
 		  assertEquals(Actual, Expected);
 		
@@ -125,14 +126,15 @@ public class RETC_033_AddedPropertyDetails {
 		  
 		 Thread.sleep(5000);
 		  
-			String Addedproperty = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div[1]/div[3]/form[1]/table/tbody/tr[1]/td[1]/strong/a")).getText();
+			String Addedproperty = driver.findElement(By.xpath("//*[@class='row-title']")).getText();
 			
+		
 			// verify added property details. Message should get displayed
 			
 				  String Expected1 = saltStr;
 				  String Actual1 =  Addedproperty;		
 				  assertEquals(Actual1, Expected1);
-		  
+			
   
   }
   @AfterMethod

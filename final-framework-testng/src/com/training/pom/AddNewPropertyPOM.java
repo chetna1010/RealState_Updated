@@ -58,13 +58,13 @@ public class AddNewPropertyPOM {
 	@FindBy(id="_storage_room")
 	private WebElement  DetailsStorageRoom;
 	
-	@FindBy(xpath="//*[@id=\"acf-group_5aa6786492979\"]/div/div/div[2]/div/div[2]/ul/li[1]/ul/li[4]/label/input")
+	@FindBy(xpath="//*[@id=\"acf-group_5aa6786492979\"]/div/div/div[2]/div/div[2]/ul/li[5]/label/input")
 	private WebElement  CentralBangalore;
 	
 	@FindBy(id="publish")
 	private WebElement  PublishButton;
 	
-	@FindBy(xpath="//*[@id=\"message\"]")
+	@FindBy(id="message")
 	private WebElement  PostPublished;
 		
 	public AddNewPropertyPOM(WebDriver driver) {

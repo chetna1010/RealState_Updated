@@ -148,13 +148,18 @@ public class RETC_031_AddNewProperty {
 		
 		wait.until(ExpectedConditions.visibilityOf(addNewPropertyPOM.getPostPublished())); 
 
-		String PostPublished = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div[1]/div[3]/div[2]/p")).getText();
+		String PostPublished = driver.findElement(By.id("message")).getText();
 		
 		//Verify My Profile page should get displayed
 		
-		  String Expected ="Post published. View post";
+
+		
+		  String Expected ="Post published. View post\n" + 
+		  		"Dismiss this notice.";
 		  String Actual =  PostPublished;		
 		  assertEquals(Actual, Expected);
+		  
+		  
 		 
   }
   

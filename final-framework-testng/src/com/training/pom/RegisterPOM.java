@@ -18,7 +18,7 @@ public class RegisterPOM {
 	@FindBy(name="submit")
 	private WebElement register; 
 	
-	@FindBy(xpath="/html/body/div[1]/div[4]/div/article/div/div/div/div[1]/p")
+	@FindBy(xpath="//div[@class='notification success closeable']")
 	private WebElement success;
 	
 	@FindBy(id="email")
@@ -33,6 +33,9 @@ public class RegisterPOM {
 	public RegisterPOM(WebDriver driver) {
 		this.setDriver(driver); 
 		PageFactory.initElements(driver, this);
+	}
+	
+	public RegisterPOM() {
 	}
 	
 	

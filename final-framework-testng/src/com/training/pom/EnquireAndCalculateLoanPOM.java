@@ -17,7 +17,7 @@ public class EnquireAndCalculateLoanPOM {
 	private WebElement NewLunch; 
 	
 	
-	@FindBy(xpath="//*[@id=\"wpmm-megamenu\"]/div/div[3]/div[1]/a/img")
+	@FindBy(xpath="//*[@id=\"wpmm-megamenu\"]/div/div[3]")
 	private WebElement NullamHendrerit;
 	
 	@FindBy(xpath="//*[@id=\"wrapper\"]/div[4]/div/div/div[1]/div/div/a[1]")

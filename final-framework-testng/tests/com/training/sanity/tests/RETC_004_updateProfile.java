@@ -68,7 +68,7 @@ public class RETC_004_updateProfile {
 		updateProfilePOM.sendPassword("ramesh1234");
 		updateProfilePOM.clickLoginBtn(); // click on login button
 		 
-		wait.until(ExpectedConditions.visibilityOf(updateProfilePOM.getProfile())); //Wait until profile text displays
+		wait.until(ExpectedConditions.visibilityOf(updateProfilePOM.getUserHyperlink())); //Wait until profile text displays
 		screenShot.captureScreenShot("RETC_004_updateProfile_02_Login_success");
 		
 		Actions actions = new Actions(driver); // Used mouse action funtion to click on User Hyper link then click on MY profile
@@ -85,7 +85,7 @@ public class RETC_004_updateProfile {
 		
 		screenShot.captureScreenShot("RETC_004_updateProfile_04_ProfileUpdated");
 		
-		String updateprofile = driver.findElement(By.xpath("/html/body/div[1]/div[4]/div/article/div[2]/div/div[1]/div/p")).getText();
+		String updateprofile = driver.findElement(By.xpath("//div[@class='notification success closeable margin-bottom-35']")).getText();
 		
 			//Your profile has been updated. Message should get displayed with the changes made in My Profile page
 

@@ -70,7 +70,7 @@ public class RETC_002_Login {
 		wait.until(ExpectedConditions.visibilityOf(register_LoginPOM.getProfile()));
 		screenShot.captureScreenShot("RETC_002_login_02_Login_success");
 		
-		String loginsuccess = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/h2")).getText();
+		String loginsuccess = driver.findElement(By.xpath("//*[@id=\"titlebar\"]/div/div/div/h2")).getText();
 		
 		//Verify My Profile page should get displayed
 

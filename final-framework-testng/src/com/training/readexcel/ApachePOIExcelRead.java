@@ -34,6 +34,7 @@ public class ApachePOIExcelRead {
 			XSSFSheet sheet = workbook.getSheetAt(0);
 			
 			int rowTotal = sheet.getLastRowNum();
+			
 
 			if ((rowTotal > 0) || (sheet.getPhysicalNumberOfRows() > 0)) {
 			    rowTotal++;
@@ -46,6 +47,7 @@ public class ApachePOIExcelRead {
 			 
 			while (rowIterator.hasNext()) {
 				Row row = rowIterator.next();
+				
 				// For each row, iterate through all the columns
 				Iterator<Cell> cellIterator = row.cellIterator();
 
@@ -78,8 +80,6 @@ public class ApachePOIExcelRead {
 					list1[rowCount++] = tempList1;
 				}
 			}
-		
-			
 			file.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -89,7 +89,7 @@ public class ApachePOIExcelRead {
 	}
 
 	public static void main(String[] args) {
-		String fileName = "C:/Users/Naveen/Desktop/Testing.xlsx";
+		String fileName = "C:\\Users\\IBM_ADMIN\\Downloads\\Selenium programs\\Week3 testcase\\RealEstate TestCases (003)_B2-Complex.xlsx";
 		
 		for(String [] temp : new ApachePOIExcelRead().getExcelContent(fileName)){
 			for(String  tt : temp){

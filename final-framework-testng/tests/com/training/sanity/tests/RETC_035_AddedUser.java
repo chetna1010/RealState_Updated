@@ -122,7 +122,7 @@ public class RETC_035_AddedUser {
 			
 			// Verify created user should get displayed
 
-			  String Expected1 = (saltStr);
+			  String Expected1 = saltStr;
 			  String Actual1 =  Newuser;		
 			  assertEquals(Actual1, Expected1);
   }

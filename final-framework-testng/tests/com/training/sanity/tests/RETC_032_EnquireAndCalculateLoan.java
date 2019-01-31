@@ -110,7 +110,7 @@ public class RETC_032_EnquireAndCalculateLoan {
 		
 		screenShot.captureScreenShot("RETC_032_EnquireAndCalculateLoanPOM_05_Message sucess");
 		
-		String messagesend = driver.findElement(By.xpath("//*[@id=\"wpcf7-f4-o1\"]/form/div[2]")).getText();
+		String messagesend = driver.findElement(By.xpath("//div[@class='wpcf7-response-output wpcf7-display-none wpcf7-mail-sent-ng']")).getText();
 		
 		// verify Thank you for your message. It has been sent. Message should get displayed
 			
@@ -131,7 +131,7 @@ public class RETC_032_EnquireAndCalculateLoan {
 				
 				Thread.sleep(5000);
 		
-				String Calculate = driver.findElement(By.xpath("//*[@id=\"widget_mortgage_calc_properties-4\"]/form/div[5]/div")).getText();
+				String Calculate = driver.findElement(By.xpath("//div[@class='notification success']")).getText();
 				
 				// verify Monthly Payment: 87.74 Rs. Message should get displayed
 				

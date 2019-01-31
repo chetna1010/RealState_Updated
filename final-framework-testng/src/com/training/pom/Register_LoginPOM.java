@@ -9,10 +9,8 @@ public class Register_LoginPOM {
 	
 	private WebDriver driver; 
 	
-		
 	@FindBy(xpath="//a[@class='sign-in']")
 	private WebElement login_register; 
-
 	
 	@FindBy(id="user_login")
 	private WebElement userName; 
@@ -23,7 +21,7 @@ public class Register_LoginPOM {
 	@FindBy(name="login")
 	private WebElement login;
 	
-	@FindBy(xpath="/html/body/div[1]/div[3]/div/div/div/h2")
+	@FindBy(xpath="//*[@id=\"titlebar\"]/div/div/div/h2")
 	private WebElement profile;
 	
 	
@@ -31,6 +29,17 @@ public class Register_LoginPOM {
 		this.setDriver(driver); 
 		PageFactory.initElements(driver, this);
 	}
+	
+	public WebDriver getDriver() {
+		return driver;
+	}
+
+	public void setDriver(WebDriver driver) {
+		this.driver = driver;
+	}
+
+		
+
 	
 	@FindBy(id="formLogin_submitAuth")
 	private WebElement loginBtn; 
@@ -63,13 +72,4 @@ public class Register_LoginPOM {
 		this.login.click(); 
 	}
 
-	public WebDriver getDriver() {
-		return driver;
-	}
-
-	public void setDriver(WebDriver driver) {
-		this.driver = driver;
-	}
-
-		
-	}
+		}
